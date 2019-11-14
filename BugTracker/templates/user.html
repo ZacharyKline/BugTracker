@@ -1,0 +1,33 @@
+{% load static %}
+<link rel='stylesheet' href='static/styles.css'>
+<a href='/'><button>Home</button></a>
+
+<h2>User: {{user.username}}</h2>
+<div>Tickets Published:
+    {% for item in created %}
+    {% if item.ticket_author %}
+    <ul>
+        <li>{{ item.title }}</li>
+    </ul>
+    {% endif %}
+    {% endfor %}
+</div>
+<br>
+<div>Tickets Assigned:
+    {% for item in assigned %}
+    {% if item.assigned_user %}
+    <ul>
+        <li>{{ item.title }}</li>
+    </ul>
+    {% endif %}
+    {% endfor %}
+</div>
+<div>Tickets Finished:
+    {% for item in finished %}
+    {% if item.finished_user %}
+    <ul>
+        <li>{{ item.title }}</li>
+    </ul>
+    {% endif %}
+    {% endfor %}
+</div>

@@ -1,0 +1,42 @@
+{% load static %}
+<link rel='stylesheet' href='static/styles.css'>
+<a href='/'><button>Home</button></a>
+<a href='/editticket/{{item.id}}'><button>Edit Ticket</button></a>
+<h2>Ticket:</h2>
+
+{% for item in data %}
+<div class='content'>
+    <h2>Title: {{ item.title }}</h2>
+    <h3>Description: {{ item.description }}</h3>
+    <h3>Ticket Status: {{ item.get_ticket_status_display }}</h3>
+    <h3>Assigned User: {{ item.assigned_user }}</h3>
+    <h3>Finished User: {{ item.finished_user }}</h3>
+    <h3>Post Time: {{ item.post_time }}</h3>
+    <br>
+    <br>
+    <br>
+    <div>Change Ticket Status:</div>
+    <div>
+        <form action='/changeticket/{{item.id}}/' method='post'>
+            {% csrf_token %}
+            <input type='hidden' value='1' name='action'>
+            <input type="submit" value='New'>
+        </form>
+        <form action='/changeticket/{{item.id}}/' method='post'>
+            {% csrf_token %}
+            <input type='hidden' value='2' name='action'>
+            <input type="submit" value='In Progress'>
+        </form>
+        <form action='/changeticket/{{item.id}}/' method='post'>
+            {% csrf_token %}
+            <input type='hidden' value='3' name='action'>
+            <input type="submit" value='Done'>
+        </form>
+        <form action='/changeticket/{{item.id}}/' method='post'>
+            {% csrf_token %}
+            <input type='hidden' value='4' name='action'>
+            <input type="submit" value='Invalid'>
+        </form>
+    </div>
+</div>
+{% endfor %}
