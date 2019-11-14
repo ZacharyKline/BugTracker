@@ -1,11 +1,12 @@
 body{
     background: lightgrey;
+    background-image: url('https://media.giphy.com/media/cjoWs5ojCcKh01DJCC/giphy.gif')
 }
-#content {
+#content, #contentedit, #content-ticket, #content-form, #content_user {
        margin-left: 10%;
        margin-right: 10%;
-
 }
+
 
 .headers {
     font-weight: bold;
@@ -13,8 +14,28 @@ body{
 }
 
 .areas{
-    border: 3px solid black;
-    background: rgb(176, 193, 238);
+    border: 3px solid rgba(0, 0, 0, 0.434);
+    background: rgba(108, 131, 199, 0.906);
     margin-bottom: 10px;
     padding: 7px;
+}
+
+.buttonstyle{
+    height: 35px;
+    width: 250px;
+    font-size: 22px;
+    font-weight: bolder;
+    border: 1px solid black;
+    box-shadow: 3px 4px;
+}
+
+.buttonstyle:active{
+    padding:3px 4px 3px 6px;
+
+}
+.formbuttons{
+    display: flex;
+}
+.buttonish{
+    margin: 5px;
 }

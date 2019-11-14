@@ -52,7 +52,7 @@ def add_ticket(request):
 
 @login_required
 def edit_ticket(request, id):
-    html = 'add_form.html'
+    html = 'editticket.html'
     instance = BugTicket.objects.get(id=id)
     if request.method == 'POST':
         form = TicketAdd(request.POST, initial={
